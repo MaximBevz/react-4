@@ -1,6 +1,9 @@
 import './App.css';
-import Users from "./components/users/Users";
-import Posts from "./components/posts/Posts";
+import Characters from "./components/characters/Characters";
+import Inventory from "./components/inventory/Inventory";
+import Home from "./components/home/Home";
+import CharacterInfo from "./components/character-info/CharacterInfo";
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -9,16 +12,24 @@ import {
 } from "react-router-dom";
 
 
+
 function App() {
   return (
       <Router>
           <div className="App">
-              <div><Link to={'users'}> to users</Link></div>
-              <div><Link to={'posts'}> to posts</Link></div>
+              <div><Link to={'/'}>Home</Link></div>
+              <div><Link to={'/characters'}> to Characters</Link></div>
+              <div><Link to={'/inventory'}> to Inventory</Link></div>
 
               <Switch>
-                  <Route path={'/users'} render={() => <Users /> }/>
-                  <Route path={'/posts'} render={() => <Posts />}/>
+                  <Route exact path={'/'} render={() => <Home />}/>
+                  <Route path={'/inventory'} render={(props) => <Inventory {...props}/>}/>
+                  <Route exact path={'/characters'} render={(props) => <Characters {...props}/>}/>
+                  <Route exact path={'/characters/:id'} render={(props) => {
+                     let {match:{params:{id}}} = props;
+                      return <CharacterInfo characterId={id}
+                  />
+                  }}/>
               </Switch>
           </div>
       </Router>

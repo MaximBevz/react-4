@@ -1,25 +1,26 @@
 import axios from 'axios';
 
 const options = {
-    baseURL: 'https://jsonplaceholder.typicode.com'
+    baseURL: 'https://api.sampleapis.com/futurama'
 };
 
 let axiosInstance = axios.create(options);
 
-const getUsers = () => {
-    return axiosInstance.get('/users'); //promise
+const getCharacters = () => {
+    return axiosInstance.get('/characters'); //promise
 };
 
-const getUser = (id) => {
-    return axiosInstance.get('/users' + id); // promise
+const getCharacterFullInfo = (id) => {
+    return axiosInstance.get('/characters/' + id); //promise
 };
 
-const getPosts = () => {
-    return axiosInstance.get('/posts'); //promise
+
+const getInventory = () => {
+    return axiosInstance.get('/inventory'); //promise
 };
 
-const getPost = (id) => {
-    return axiosInstance.get('/posts' + id); // promise
+const getInventoryFullInfo = (id) => {
+    return axiosInstance.get('/inventory/' + id); //promise
 };
 
-export {getUsers, getUser, getPost, getPosts};
+export {getCharacters, getInventory, getCharacterFullInfo, getInventoryFullInfo};

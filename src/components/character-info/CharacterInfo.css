@@ -1,0 +1,14 @@
+.character-info {
+    display: flex;
+    justify-content: space-around;
+}
+
+.character-info-main {
+    width: 50%;
+    height: 100%;
+}
+
+.character-info img {
+    width: 248px;
+    height: 408px;
+}
